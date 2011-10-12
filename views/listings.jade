@@ -1,0 +1,13 @@
+h1 Listings
+  ul#listings
+    - each listing in listings
+      li
+        p= listing.title
+        p= listing.description
+        p
+          - if (listing.tags.length)
+            | tags:
+            - each tag in listing.tags
+              #{tag.name},
+          - else
+            | "no tags"

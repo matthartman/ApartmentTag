@@ -1,0 +1,28 @@
+form(method='post', action='/search')
+  label Separate search terms by commas:
+  - if (terms)
+    input(name="searchString", value=terms)
+  - else
+    input(name="searchString")
+  input(type='submit', value='Search')
+
+- if (tags.length)  
+  p Listings for 
+    ul.tagedit-list
+      - each tag in tags
+        li.tagedit-listelement.tagedit-listelement-old
+          span #{tag.name}
+          a.tagedit-close x
+
+- if (listings.length)  
+  p
+    ul#listings
+      - each listing in listings
+        li
+          p #{listing.title} (#{matchCounts[listing._id]} matches)
+          p
+            ul.tagedit-list
+              - each tag in listing.tags
+                li.tagedit-listelement.tagedit-listelement-old
+                  span #{tag}
+                  a.tagedit-close x

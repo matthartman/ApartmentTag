@@ -1,0 +1,64 @@
+h1 aptag
+  
+  div(id="topsearch", class="topsearch")
+    form(method='post', action='#', id='function-source')
+      input(name='tag[]', value='', type='text', class="tag")
+      button(class="thoughtbot") Save
+    div(id ="calloutBalloon", class="calloutBalloon") 
+      .calloutUp
+        .calloutUp2 
+      .divContainerUp Enter tags of what you're looking for. Like "1 Bedroom" or "Soho"
+
+#page-wrap
+    p#catpicker
+      a(href="#", id="allcat", class="current") Inbox
+      a(href="#", id="source1", class="filter") See All
+      a(href="#", id="themap", class="filter") Map
+      
+    .listing.source1
+      div(style="position: absolute; margin-left: -50px")
+        img(src="img/staricon.png")
+      .titlebar
+        img(src="http://images.craigslist.org/3k43m03o25W35R55S4b7kb8f1c73bf128102b.jpg", width=100, style="margin-top: 28px")        
+        .prod-title Listing 1
+        .listingcorner $1680
+      .listingbody 1-BR, Streeterville, 1-BA
+    
+    .listing.source2
+      img(src="http://www.theleaselink.com/filebin/images/properties/delpradorevised/Del_Prado--4.jpg", width=100)
+      .titlebar
+        .prod-title Listing 2
+        .listingcorner $1,440
+       .listingbody Granite, Carpet, Historic Building, Hyde Park
+
+    .listing.source3
+      img(src="http://www.postlets.com/create/photos/20101029/162303_180Jefferson_pool.jpg", width=100)
+      .titlebar
+        .prod-title Listing 3
+        .listingcorner $2,286
+      .listingbody 2-BR, 2-BA
+
+    .listing.themap here is a map    
+  script(type='text/javascript')
+    $(function() {	
+      // Function Source
+      //$('#topsearch').mouseover(function(){$('#calloutBalloon').fadeOut(500);})
+      $('#function-source input.tag').tagedit({
+        autocompleteOptions: {
+          source: function(request, response){
+            var data = [
+              { "id": "1", "label": "Hazel Grouse", "value": "Hazel Grouse" },
+              { "id": "2", "label": "Common Quail",	"value": "Common Quail" },
+              { "id": "3", "label": "Greylag Goose", "value": "Greylag Goose" },
+              { "id": "4", "label": "Merlin", "value": "Merlin" },
+            ];				
+            return response($.ui.autocomplete.filter(data, request.term) );
+          }
+        }
+       });	
+     });
+     function hideCallout(){
+       alert("hiding callout");
+     }
+
+     

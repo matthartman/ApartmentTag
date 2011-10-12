@@ -1,0 +1,26 @@
+p
+  form(method='post', action='/tag/nest')
+    label Parent:
+      input(name="parentTagName")
+    label Child:
+      input(name="childTagName")
+    input(type='submit', value='Nest')
+
+p  
+  table(style="border-spacing:5px")
+    tr
+      td
+        b Parents
+      td
+        b Children
+    - for (var tag in tags)
+      tr
+        td
+          #{tags[tag].name}
+        td
+          - if (tags[tag].children)
+            ul.tagedit-list
+              - each child in tags[tag].children
+                li.tagedit-listelement.tagedit-listelement-old
+                  span #{child.name}
+                  a.tagedit-close(rel=child._id) x

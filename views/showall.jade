@@ -1,0 +1,154 @@
+#tiptip_holder.tip_right(style="max-width: 400px; margin-right: 0px; margin-bottom: 0px; margin-left: 93px; margin-top: 122px; display: hidden; ")
+  #tiptip_arrow(style="margin-left: -12px; margin-top: 31px; ")
+    #tiptip_arrow_inner
+  #tiptip_close(onclick="$(this).parent().fadeToggle(); if (clicky) clicky.log('#/close_inbox_tip','Inbox tip box close button hit');") x
+  #tiptip_content
+    #tiptip_content_text Responses will appear here. To be alerted when you get a response after you alerted leave the site,
+    #fb-login.fb_button(style='background-position:left -188px;', onClick="clicky.log('#/facebook_login_from_inbox_tip','Facebook Login From Inbox Tip Box'); ")
+      a.fb_button_medium(href='/auth/facebook')
+        span#fb_login_text.fb_button_text Connect with Facebook
+
+#mydocument
+  #masthead
+    img(src="img/logo.png", height=25)
+    img(src="//in.getclicky.com/66469533ns.gif")
+    div(id="resultsData", style="float: right; margin-right: 5px; margin-top: 5px; width: 300px;")
+      div(style="float: right;")  
+        - if (!everyauth.loggedIn)
+          #fb-login.fb_button(style='background-position:left -188px;', onClick="clicky.log('#/facebook_login','Facebook Login'); ")
+            a.fb_button_medium(href='/auth/facebook')
+              span#fb_login_text.fb_button_text Get Email Alerts
+        - else
+          #user-id(style="font-size: 12px;") Saved!
+            a(href='/logout', onClick="click.log('#/facebook_logout','Facebook Logout');") &nbsp;(logout)
+
+  ul.navigation
+    li#nav0(onclick="changeView(0);")
+      img(src="img/search-gray.png")
+      <br>
+      | Search
+    li#nav1(onclick="changeView(1);")
+      div(class="new-message")
+        a(id="notificationCount", style="visibility: hidden;")
+      img(src="img/email-gray.png")
+      <br>
+      | Messages
+
+  #following
+    div(id="filterDiv", class="followingContents") 
+      center
+        table(class="padded-table")
+          tr
+            td
+              p hood(s):  
+            td(width="180px;")
+              form(id="function-source2",  style="background-color: WHITE; font-color: BLACK;")
+                input(type="text", tabindex="0", name="tag[]", value="", class="tag", id="city")
+            td 
+              p price:
+            td
+              input(name="priceMin", tabindex="1", id="priceMin",  value="0", onfocus="hideInfobox()", onchange="UpdateSearchParameters()", style="position: relative; border: 1px solid #C6C6C6; color: #355765; display: block; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 50px;")
+            td to:
+            td
+              input(name="priceMax", tabindex="2", id="priceMax", value="10,000", onfocus="hideInfobox()", onchange="UpdateSearchParameters()", style="position: relative;  border: 1px solid #C6C6C6; color: #355765; display: block; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 50px;")
+            td
+              p # rooms:  
+            td
+              select(name="bedroomCount", tabindex="3", id="bedroomCount", onfocus="hideInfobox()", onchange="UpdateSearchParameters()", style="font-size: 12px; font-style: normal; height: 20px; line-height: 16px; ")
+                option(value="0") Studio+
+                option(value="1") 1+
+                option(value="2") 2+
+                option(value="3") 3+
+                option(value="4") 4+
+              //input(name="bedroomCount", tabindex="3", id="bedroomCount", value="1", onfocus="hideInfobox()", onchange="UpdateSearchParameters()", style="position: relative; border: 1px solid #C6C6C6; color: #355765; display: block; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 50px")
+            td
+              p nice-to-haves:
+            td(width="200px;")
+              form(id="function-source1",  style="background-color: WHITE; font-color: BLACK;")
+                input(type="text", tabindex="4", name="tag[]", value="", class="tag", id="searchTags")
+            td(width="150px")
+              button(id="updateButton", onclick="updateButtonClick();")
+                a(id="updateButtonLink", style="vertical-align: middle; margin-left: 5px; font-size: 20px;") Update
+  div(id="container1")
+    #panel-frame
+      div(id='panel', style="position:absolute; z-index:2; width: 700px; height: 800px; overflow-y: scroll; border: 5px solid #008596; background-color: WHITE")
+        .head
+          span(id="listingTitle", style="font-size: 22px; vertical-align: middle;")
+          button(onClick="markFavorite(currentListingIndex); clicky.log('#/markFavoriteFromListing','Mark Favorite From Listing');", style="cursor: pointer;")
+            img(src="/img/favorite.png", height="40px", style="vertical-align: middle;", alt="Mark Favorite", title="Mark Favorite")
+          | &nbsp &nbsp
+          a(href="#", class="close", style="float: right; color: #008596; font-size: 16px;", onClick='if (clicky) clicky.log("#/closeDetails","Close Details Panel");')
+            img(src="/img/close.png", height="40px")
+          
+        div(style="display: none;")
+          div(id="inline1", style="width:600px;height:100px;overflow:auto;vertical-align: middle; margin-left: 5px; font-size: 20px;") Your Number
+            input(type="text", id="userTextNumber",name="question", value="(xxx)-xxx-xxxx", style="margin-left: 10px;border: 1px solid #C6C6C6; color: #355765; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: thin; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 350px")
+            button(id="userTextNumberButton", onClick="textMe(); clicky.log('#/sendUserText',$('input#userTextNumber')[0].value);", class="css3button", style="position: relative; left: 10px; cursor: pointer") Send
+        div(id="QandA", style="background-color: WHITE; margin-left: 0px; font:normal 62.5%/1.5 Helvetica, Arial, sans-serif; font-size: 14px; padding: 10px; border-bottom: 1px solid black; width: 300px; padding: 3px;")
+          div(id="questionContent", style="background-color: #E8F9FA; border: 2px solid #D2F1F7; width: 500px; padding: 20px; position: relative;", class="visibleQandA")
+            div(style="margin-top: -10px; margin-left: -10px;") Conversation with Owner:
+            img(src="img/question.png", style="vertical-align: middle;", height="40px;")
+            input(type="text", id="question",name="question", placeholder="Does this apartment have..?", style="margin-left: 0px; border: 1px solid #C6C6C6; color: #355765; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: thin; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 350px")
+            button(id="replyButton", onClick="askQuestion($('#question')); clicky.log('#/askQuestionFromListing',$('input#question')[0].value);", class="css3button", style="position: relative; left: 10px; cursor: pointer") Ask
+            div(id="existingMessages")
+            #replyDiv
+              input(type='text', id='reply', name='reply', placeholder='Your reply here...', style='margin-left: 60px; border: 1px solid #C6C6C6; color: #355765; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-style: thin; height: 14px; line-height: 10px; outline-color: #355765; padding: 3px; width: 300px')
+              button(id='replyButton', onclick='askQuestion($("#reply"));clicky.log(\"#/repliedFromListing\",$(\"input#reply\")[0].value);', class='css3button_small', style='position: relative; left: 10px; cursor: pointer') Reply		
+          div(id="ThanksForSubmitting", style="position: absolute;", class="hiddenQandA")
+              br
+              img(src="img/tick-icon.png", style="vertical-align: middle")
+              span(style="vertical-align: middle; margin-left: 5px;") To be alerted when you get a response, enter your email address:
+              input(type="text", id="myEmail",name="myEmail", value="your@email", style="margin-left: 20px; border: 1px solid #C6C6C6; color: #355765; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-style: thin; height: 20px; line-height: 16px; outline-color: #355765; padding: 5px; width: 200px")      
+              button(id="emailButton", onClick="addEmail(); clicky.log('#/addedEmail',$('input#myEmail')[0].value);", class="css3button", style="position: relative; left: 10px;") save
+              span(style="vertical-align: middle; margin-left: 15px;")  or 
+              - if (!everyauth.loggedIn)
+                #fb-login.fb_button(style='background-position:left -188px;', onClick="clicky.log('#/facebook_login_email','Facebook Login instead of email after question'); ")
+                  a.fb_button_medium(href='/auth/facebook')
+                    span#fb_login_text.fb_button_text Connect
+              - else
+                #user-id(style="font-size: 12px;") Connected!
+                  a(href='/logout', onClick="click.log('#/facebook_logout','Facebook Logout');") &nbsp;(logout)
+
+        iframe(id='CLiframe', height="2600")
+    div(id='myMap')
+    #spin
+    div(class="left", id="left")
+      .leftholder
+      .leftholder
+
+script(type="text/javascript")
+  if (#{environment == 'production'} || #{environment == 'staging'})
+    window.console = { log: function () {} };
+  if (#{cityRegion != null})
+    cityRegion = '#{cityRegion}';
+  else 
+    cityRegion = 'washingtondc';
+  if(#{environment != 'production'})
+    clicky = { log: function () {} };
+
+script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", type="text/javascript")
+script(src="/js/jquery-ui-1.8.6.custom.min.js", type="text/javascript")
+script(src="/js/jquery.autoGrowInput.js", type="text/javascript")
+script(src="/js/jquery.rotate.1-1.js", type="text/javascript")
+script(src="/js/jquery.tagedit-1.2.0.js", type="text/javascript")
+
+- if (environment == 'production')
+  script(src="http://static.getclicky.com/js", type="text/javascript")
+
+script(src="/js/jquery-tmpl.js", type="text/javascript")
+script(src='http://static.ak.fbcdn.net/connect/en_US/core.js')
+script(src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0", type="text/javascript")
+- if (environment == 'production' || environment == 'staging')
+  script(src="/scripts.js", type="text/javascript")
+- else
+  script(src="/js/spin.js", type="text/javascript")
+  script(src="/js/inbox.js", type="text/javascript")
+  script(type="text/javascript", src="/js/jquery.tipTip.js")
+  
+//script(src="http://observer.no.de/deploy/observer.js&#35;{observer&#58;'4e66de171762c00339016eb8'}", type="text/javascript")
+script(src="http://www.snapengage.com/snapabug.js", type="text/javascript")
+script(type="text/javascript")
+  SnapABug.addButton("5f08052c-f599-46b6-89a0-157fa09f4417","1","55%");
+  
+script(type="text/javascript", src="/js/fancybox/jquery.fancybox-1.3.4.pack.js")
+link(rel="stylesheet", href="/js/fancybox/jquery.fancybox-1.3.4.css", type="text/css", media="screen")

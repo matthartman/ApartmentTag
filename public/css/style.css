@@ -1,0 +1,159 @@
+*                           { margin: 0; padding: 0; }
+html                        { overflow-y: scroll; }
+body                        { font: 12px Georgia; }
+p                           { padding: 5px; }
+
+#page-wrap                  { width: 690px; margin: 20px auto; }
+
+h1                          { font: 30px Georgia; margin: 0 0 10px 0;  }
+
+.listing            { width: 100%; margin: 0 0 10px 0; position: relative; cursor: pointer;
+                              height: 79px; }
+
+.listingbody               { padding: 10px 0 10px 150px; font: italic 18px Georgia, Serif; }
+.listingbody strike        { color: #999; padding: 0 5px; }
+.listingbody span          { font: bold 18px Helvetica, Sans-Serif; }
+
+.titlebar                  { padding: 4px 0 4px 150px; overflow: hidden;
+                              width: 540px; color: white; }
+                 
+.prod-title                 { width: 49%; float: left; font: bold 17px Helvetica, Sans-Serif; }
+.listingcorner                     { width: 49%; float: right; text-align: right; text-transform: uppercase; 
+                              letter-spacing: 2px; padding: 0 5px 0 0; }
+                              
+.listing img        { position: absolute; top: 0; left: 0; }
+
+.reduced                    { border: 2px solid #ff8400; }
+.reduced .titlebar         { background: #ff8400; }
+.reduced .listingbody      { color: #ff8400; background: white; }
+
+.source1               { border: 2px solid #e42b2b; }
+.source1 .titlebar    { background: #e42b2b; }
+.source1 .listingbody { color: #e42b2b; background: white; }
+
+.source2                    { border: 2px solid #a800ff; }
+.source2 .titlebar         { background: #a800ff; }
+.source2 .listingbody      { color: #a800ff; background: white; }
+
+.source3               { border: 2px solid #49a7f3; }
+.source3 .titlebar    { background: #49a7f3; }
+.source3 .listingbody { color: #49a7f3; background: white; }
+
+.themap                    { border: 2px solid #41d05f; }
+.themap .titlebar         { background: #41d05f; }
+.themap .listingbody      { color: #41d05f; background: white; }
+
+.buynow                     { position: absolute; bottom: -13px; left: 126px; }
+
+.current                    { font-weight: bold; font-size: 15px; }
+
+
+.topsearch {
+	width: 500px;
+	margin: auto;
+}
+
+td #tagNestForm {
+  padding:5px;
+}
+
+/* thoughtbot button (inspired by thoughtbot.com)
+*******************************************************************************/
+
+
+button.thoughtbot {
+  position: absolute;
+  margin-top: -30px;
+  margin-left: 420px;
+  background-color: #ee432e;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ee432e 0%), to(#c63929 50%));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -moz-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -ms-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: -o-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  background-image: linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 50%, #891100 100%);
+  border: 1px solid #951100;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  -ms-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  -o-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4), 0 1px 3px #333333;
+  color: #fff;
+  font: bold 20px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  padding: 9px 0 9px 0;
+  text-align: center;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.8);
+  width: 100px; }
+  button.thoughtbot:hover {
+    background-color: #f37873;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f37873 0%), to(#db504d 50%));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    background-image: -moz-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    background-image: -ms-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    background-image: -o-linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    background-image: linear-gradient(top, #f37873 0%, #db504d 50%, #cb0500 50%, #a20601 100%);
+    cursor: pointer; }
+  button.thoughtbot:active {
+    background-color: #d43c28;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d43c28 0%), to(#ad3224 50%));
+    /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    background-image: -moz-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    background-image: -ms-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    background-image: -o-linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    background-image: linear-gradient(top, #d43c28 0%, #ad3224 50%, #9c1500 50%, #700d00 100%);
+    -webkit-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    -moz-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    -ms-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    -o-box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4);
+    box-shadow: inset 0px 0px 0px 1px rgba(255, 115, 100, 0.4); }
+
+
+/*callout balloon */
+.calloutUp
+ {
+     height: 0;
+     width: 0;
+     border-bottom: 12px solid #999;
+     border-left: 12px dotted transparent;
+     border-right: 12px dotted transparent;
+     left: 0px;
+     top: 0px;
+     margin-left: 20px;
+     z-index: 10;
+ }
+ .calloutUp2
+ {
+     position: relative;
+     left: -10px;
+     top: 2px;
+     height: 0;
+     width: 0;
+     border-bottom: 10px solid #FFF467;
+     border-left: 10px dotted transparent;
+     border-right: 10px dotted transparent;
+     z-index: 11;
+ }
+
+ .divContainerUp
+ {
+	 
+     background-color: #FFF467;
+     border: solid 1px #999;
+     position: relative;
+     top: -1px;
+     z-index: 9;
+     width: 200px;
+     padding: 14px;
+	 -moz-border-radius: 15px;
+	 border-radius: 15px;
+	 font-size: 12px;
+ }

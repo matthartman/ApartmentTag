@@ -1,0 +1,11 @@
+form(method='post', action='/tag')
+  label Title:
+    input(name='name')
+  label Description:
+    input(id='description', name='description')
+  input(type='submit', value='Save')
+  
+script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", type="text/javascript")
+
+script(type="text/javascript")
+  $('input#description').val('neighborhood:chicago');
